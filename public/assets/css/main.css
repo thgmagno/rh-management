@@ -1,0 +1,54 @@
+body {
+    background-color: #eee;
+}
+
+.bg-color-1 {
+    background-color: #18181b;
+}
+
+.sidebar {
+    padding: 20px;
+    min-width: 250px !important;
+    background-color: #fcfcfc;
+    min-height: 100vh;
+}
+
+.sidebar a {
+    color: #000;
+    text-decoration: none;
+    padding: 4px 12px;
+}
+
+.sidebar a:hover {
+    background-color: #333;
+    color: #fff;
+    border-radius: 4px;
+}
+
+.auth-card {
+    background-color: #fcfcfc;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 92%;
+    max-width: 460px;
+    margin: 0 auto;
+}
+
+.auth-card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fcfcfc;
+}
+
+.main-content {
+    display: flex;
+}
+
+.custom-card {
+    background-color: #fcfcfc;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
