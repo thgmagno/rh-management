@@ -1,6 +1,6 @@
 <div class="col-12 col-md-6">
     <div class="custom-card">
-        <form action="{{ route('user.profile.update-data') }}" method="post">
+        <form action="{{ route('profile.update-data') }}" method="post">
 
             @csrf
 

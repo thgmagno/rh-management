@@ -22,7 +22,7 @@
 
             <div class="mb-3 d-flex justify-content-end gap-3">
                 <a href="{{ route('departments') }}" class="btn btn-secondary">Voltar</a>
-                <button type="submit" class="btn btn-primary">Editar departamento</button>
+                <button type="submit" class="btn btn-primary">Salvar alterações</button>
             </div>
 
         </form>

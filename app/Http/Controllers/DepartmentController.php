@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\DepartmentResource;
 use App\Models\Department;
 use Auth;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -24,19 +25,12 @@ class DepartmentController extends Controller
     {
         $this->canAccess();
 
-        return view('department.create-department');
+        return view('department.department-create');
     }
 
-    public function store(Request $request)
+    public function store(DepartmentResource $request)
     {
         $this->canAccess();
-
-        $request->validate([
-            'name' => 'required|string|min:1|max:255|unique:departments,name'
-        ], [
-            'name.required' => 'O campo nome do departamento é obrigatório.',
-            'name.unique' => 'O nome do departamento já está em uso.',
-        ]);
 
         Department::create([
             'name' => $request->name,
@@ -45,25 +39,26 @@ class DepartmentController extends Controller
         return redirect()->route('departments')->with('success', 'Departamento criado com sucesso!');
     }
 
-    public function edit(Request $request)
+    public function edit($id)
     {
         $this->canAccess();
 
-        $department = Department::where('id', $request->id)->first();
+        if (intval($id) === 1) {
+            return redirect()->route('departments');
+        }
 
-        return view('department.edit-department', compact('department'));
+        $department = Department::findOrFail($id);
+
+        return view('department.department-edit', compact('department'));
     }
 
-    public function update(Request $request)
+    public function update(DepartmentResource $request)
     {
         $this->canAccess();
 
-        $request->validate([
-            'name' => 'required|string|min:1|max:255|unique:departments,name'
-        ], [
-            'name.required' => 'O campo nome do departamento é obrigatório.',
-            'name.unique' => 'O nome do departamento já está em uso.',
-        ]);
+        if (intval($request->id) === 1) {
+            return redirect()->route('departments');
+        }
 
         Department::where('id', $request->id)->update([
             'name' => $request->name,
@@ -72,11 +67,28 @@ class DepartmentController extends Controller
         return redirect()->route('departments')->with('success', 'Departamento atualizado com sucesso!');
     }
 
+    public function destroyConfirm(Request $request)
+    {
+        $this->canAccess();
+
+        if (intval($request->id) === 1) {
+            return redirect()->route('departments');
+        }
+
+        $department = Department::findOrFail($request->id);
+
+        return view('department.department-destroy-confirm', compact('department'));
+    }
+
     public function destroy(Request $request)
     {
         $this->canAccess();
 
-        Department::where('id', $request->id)->delete();
+        if (intval($request->id) === 1) {
+            return redirect()->route('departments');
+        }
+
+        Department::findOrFail($request->id)->delete();
 
         return redirect()->route('departments')->with('success', 'Departamento deletado com sucesso!');
     }

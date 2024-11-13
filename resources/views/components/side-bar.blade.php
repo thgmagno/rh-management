@@ -3,15 +3,15 @@
 
     <!-- Admin routes -->
     @can('admin')
-        <a href="#"><i class="fas fa-users me-3"></i>Colaboradores</a>
-        <a href="#"><i class="fas fa-user-gear me-3"></i>RH Colaboradores</a>
+        <a href="{{ route('users') }}"><i class="fas fa-users me-3"></i>Colaboradores</a>
+        <a href="{{ route('rh-users.index') }}"><i class="fas fa-user-gear me-3"></i>RH Colaboradores</a>
         <a href="{{ route('departments') }}"><i class="fas fa-industry me-3"></i>Departamentos</a>
     @endcan
 
     <hr>
 
     <!-- Shared routes -->
-    <a href="{{ route('user.profile') }}"><i class="fas fa-user me-3"></i>Perfil</a>
+    <a href="{{ route('profile') }}"><i class="fas fa-user me-3"></i>Perfil</a>
 
     <hr>
 

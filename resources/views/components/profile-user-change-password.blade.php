@@ -1,6 +1,6 @@
 <div class="col-12 col-md-6">
     <div class="custom-card">
-        <form action="{{ route('user.profile.update-password') }}" method="post">
+        <form action="{{ route('profile.update-password') }}" method="post">
             @csrf
 
             <h4>Change password</h4>

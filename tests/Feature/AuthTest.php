@@ -20,10 +20,10 @@ it('Display the login page it not logged in', function () {
 
 });
 
-// it('Display the recover password page correctly', function () {
-//     expect($this->get('/forgot-password')->status())->toBe(200);
-//     expect($this->get('/forgot-password')->content())->toContain('Voltar para o login');
-// });
+it('Display the recover password page correctly', function () {
+    expect($this->get('/forgot-password')->status())->toBe(200);
+    expect($this->get('/forgot-password')->content())->toContain('Voltar para o login');
+});
 
 it('test if an admin user can login with success', function () {
 

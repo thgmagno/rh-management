@@ -1,4 +1,4 @@
-<div class="d-flex gap-5">
+<div class="d-flex gap-5 flex-wrap">
     <div>
         <i class="fas fa-user me-3"></i>{{ auth()->user()->name }}
     </div>
